@@ -9,9 +9,17 @@
  */
 int main(int ac, char **av)
 {
+<<<<<<< HEAD
 	info_t info[] = {INFO_INIT};
 	int fd = 2;
 
+=======
+	// Initialize the info_t structure with INFO_INIT macro.
+	info_t info[] = {INFO_INIT};
+	int fd = 2;
+
+    // Inline assembly to manipulate the 'fd' variable.
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	asm (
 	"mov %1, %0\n\t"
 	"add $3, %0"
@@ -21,11 +29,19 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
+<<<<<<< HEAD
 
 	fd = open(av[1], O_RDONLY);
 
 	if (fd == -1)
 	{
+=======
+	// Open the specified file for reading.
+	fd = open(av[1], O_RDONLY);
+
+	if (fd == -1)
+ 	{
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 		if (errno == EACCES)
 		exit(126);
 
@@ -40,6 +56,7 @@ int main(int ac, char **av)
 		}
 
 		return (EXIT_FAILURE);
+<<<<<<< HEAD
 	}
 
 	info->readfd = fd;
@@ -47,5 +64,22 @@ int main(int ac, char **av)
 	populate_env_list(info);
 	read_history(info);
 	hsh(info, av);
+=======
+        }
+
+        // Assign the file descriptor to the 'readfd' field of 'info'.
+	info->readfd = fd;
+	}
+
+    // Populate the environment list.
+ 	populate_env_list(info);
+
+    // Read command history.
+	read_history(info);
+
+    // Call the main shell function.
+	hsh(info, av);
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	return (EXIT_SUCCESS);
 }

@@ -1,5 +1,9 @@
 #include "main.h"
+<<<<<<< HEAD
 /**
+=======
+/** 
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
  * _strlen - returns the length of a string
  * @s: the string whose length to check
  *
@@ -48,10 +52,15 @@ int _strcmp(char *s1, char *s2)
 	if (*s1 == *s2)
 		return (0);
 	else
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 		return (*s1 < *s2 ? -1 : 1);
 }
 
 /**
+<<<<<<< HEAD
  * starts_with - checks if needle starts with haystack
  * @haystack: string to search
  * @needle: the substring to find
@@ -60,6 +69,23 @@ int _strcmp(char *s1, char *s2)
  */
 
 char *starts_with(const char *haystack, const char *needle)
+=======
+
+ * starts_with - checks if needle starts with haystack
+
+ * @haystack: string to search
+
+ * @needle: the substring to find
+
+ *
+
+ * Return: address of next char of haystack or NULL
+
+ */
+
+char *starts_with(const char *haystack, const char *needle)
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 {
 	while (*needle)
 
@@ -70,6 +96,7 @@ char *starts_with(const char *haystack, const char *needle)
 
 
 /**
+<<<<<<< HEAD
  * _strcat - concatenates two strings
  * @dest: the destination buffer
  * @src: the source buffer
@@ -78,6 +105,23 @@ char *starts_with(const char *haystack, const char *needle)
  */
 
 char *_strcat(char *dest, char *src)
+=======
+
+ * _strcat - concatenates two strings
+ 
+ * @dest: the destination buffer
+
+ * @src: the source buffer
+
+ *
+
+ * Return: pointer to destination buffer
+
+ */
+
+char *_strcat(char *dest, char *src)
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 {
 	char *ret = dest;
 

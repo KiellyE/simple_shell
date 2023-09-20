@@ -15,6 +15,7 @@ int hsh(info_t *info, char **av)
 	while (r != -1 && builtin_ret != -2)
 	{
 		clear_info(info);
+<<<<<<< HEAD
 		if (interactive(info))
 			_puts("$ ");
 		_eputchar(BUF_FLUSH);
@@ -41,6 +42,44 @@ int hsh(info_t *info, char **av)
 		exit(info->err_num);
 	}
 	return (builtin_ret);
+=======
+
+		if (interactive(info))
+		_puts("$ ");
+
+		_eputchar(BUF_FLUSH);
+
+		r = get_input(info);
+
+	if (r != -1)
+	{
+		set_info(info, av);
+		builtin_ret = find_builtin(info);
+
+		if (builtin_ret == -1)
+		find_cmd(info);
+	}
+	else if (interactive(info))
+		_putchar('\n');
+
+	free_info(info, 0);
+	}
+
+	write_history(info);
+	free_info(info, 1);
+
+	if (!interactive(info) && info->status)
+		exit(info->status);
+
+	if (builtin_ret == -2)
+	{
+		if (info->err_num == -1)
+		exit(info->status);
+		exit(info->err_num);
+	}
+	
+	return builtin_ret;
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 }
 
 /**
@@ -68,13 +107,24 @@ int find_builtin(info_t *info)
 	};
 
 	for (i = 0; builtintbl[i].type; i++)
+<<<<<<< HEAD
 		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+=======
+	{
+	if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	{
 		info->line_count++;
 		built_in_ret = builtintbl[i].func(info);
 		break;
 	}
+<<<<<<< HEAD
 	return (built_in_ret);
+=======
+	}
+
+	return built_in_ret;
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 }
 
 /**
@@ -89,20 +139,35 @@ void find_cmd(info_t *info)
 	int i, k;
 
 	info->path = info->argv[0];
+<<<<<<< HEAD
 	if (info->linecount_flag == 1)
 	{
 		info->line_count++;
 		info->linecount_flag = 0;
 	}
+=======
+
+	if (info->linecount_flag == 1)
+	{
+	info->line_count++;
+	info->linecount_flag = 0;
+	}
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	for (i = 0, k = 0; info->arg[i]; i++)
 	{
 		if (!is_delim(info->arg[i], " \t\n"))
 		k++;
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	if (!k)
 	return;
 
 	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+<<<<<<< HEAD
 	if (path)
 	{
 		info->path = path;
@@ -112,6 +177,17 @@ void find_cmd(info_t *info)
 	{
 		if ((interactive(info) || _getenv(info, "PATH=")
 					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+=======
+
+	if (path)
+	{
+	info->path = path;
+	fork_cmd(info);
+	}
+	else
+	{
+		if ((interactive(info) || _getenv(info, "PATH=") || info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 		fork_cmd(info);
 	else if (*(info->arg) != '\n')
 	{
@@ -132,11 +208,16 @@ void fork_cmd(info_t *info)
 	pid_t child_pid;
 
 	child_pid = fork();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	if (child_pid == -1)
 	{
 		perror("Error:");
 		return;
 	}
+<<<<<<< HEAD
 	if (child_pid == 0)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
@@ -145,16 +226,39 @@ void fork_cmd(info_t *info)
 		if (errno == EACCES)
 			exit(126);
 		exit(1);
+=======
+
+	if (child_pid == 0)
+	{
+	if (execve(info->path, info->argv, get_environ(info)) == -1)
+	{
+		free_info(info, 1);
+
+	if (errno == EACCES)
+		exit(126);
+		exit(1);	
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	}
 	}
 	else
 	{
+<<<<<<< HEAD
 		wait(&(info->status));
 		if (WIFEXITED(info->status))
 	{
 		info->status = WEXITSTATUS(info->status);
 		if (info->status == 126)
 			print_error(info, "Permission denied\n");
+=======
+	wait(&(info->status));
+
+	if (WIFEXITED(info->status))
+	{
+		info->status = WEXITSTATUS(info->status);
+
+	if (info->status == 126)
+		print_error(info, "Permission denied\n");
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	}
 	}
 }

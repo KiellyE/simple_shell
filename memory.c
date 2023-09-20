@@ -12,8 +12,15 @@ int bfree(void **ptr)
 	{
 		free(*ptr);
 		*ptr = NULL;
+<<<<<<< HEAD
 	return (1);
 	}
 
 	return (0);
+=======
+	return 1;
+	}
+
+	return 0;
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 }

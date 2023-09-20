@@ -1,5 +1,6 @@
 #include "main.h"
 /**
+<<<<<<< HEAD
  * _strcpy - copies a string
  * @dest: the destination
  * @src: the source
@@ -7,6 +8,23 @@
  * Return: pointer to destination
  */
 char *_strcpy(char *dest, char *src)
+=======
+
+ * _strcpy - copies a string
+
+ * @dest: the destination
+
+ * @src: the source
+
+ *
+
+ * Return: pointer to destination
+
+ */
+
+char *_strcpy(char *dest, char *src)
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 {
 	int i = 0;
 
@@ -21,6 +39,7 @@ char *_strcpy(char *dest, char *src)
 	return (dest);
 }
 /**
+<<<<<<< HEAD
  * _strdup - duplicates a string
  * @str: the string to duplicate
  *
@@ -33,6 +52,26 @@ char *_strdup(const char *str)
 	char *ret;
 
 	if (str == NULL)
+=======
+
+ * _strdup - duplicates a string
+
+ * @str: the string to duplicate
+
+ *
+
+ * Return: pointer to the duplicated string
+
+ */
+
+char *_strdup(const char *str)
+
+{
+	int length = 0;
+	char *ret;
+	
+	if(str == NULL)
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 		return (NULL);
 	while (*str++)
 		length++;
@@ -43,6 +82,7 @@ char *_strdup(const char *str)
 		ret[length] = *--str;
 	return (ret);
 }
+<<<<<<< HEAD
 /**
  * _puts - prints an input string
  * @str: the string to be printed
@@ -54,6 +94,26 @@ void _puts(char *str)
 {
 	int i = 0;
 
+=======
+
+/**
+
+ * _puts - prints an input string
+
+ * @str: the string to be printed
+
+ *
+
+ * Return: Nothing
+
+ */
+
+void _puts(char *str)
+
+{
+	int i = 0;
+	
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	if (!str)
 		return;
 	while (str[i] != '\0')
@@ -64,6 +124,7 @@ void _puts(char *str)
 }
 
 /**
+<<<<<<< HEAD
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
@@ -72,6 +133,23 @@ void _puts(char *str)
  */
 
 int _putchar(char c)
+=======
+
+ * _putchar - writes the character c to stdout
+
+ * @c: The character to print
+	
+ *
+
+ * Return: On success 1.
+
+ * On error, -1 is returned, and errno is set appropriately.
+
+ */
+
+int _putchar(char c)
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];

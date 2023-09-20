@@ -1,9 +1,17 @@
 #include "main.h"
 /**
+<<<<<<< HEAD
  * is_chain - test if current char in buffer is a chain delimeter
  * @info: the parameter struct
  * @buf: the char buffer
  * @p: address of current position in buf
+=======
+ * is_chain - test if current char in buffer is a chain delimeter	
+ * @info: the parameter struct
+ * @buf: the char buffer
+ * @p: address of current position in buf
+ 
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
  * Return: 1 if chain delimeter, 0 otherwise
  */
 
@@ -35,6 +43,10 @@ int is_chain(info_t *info, char *buf, size_t *p)
 }
 
 /**
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
  * check_chain - checks we should continue chaining based on last status
  * @info: the parameter struct
  * @buf: the char buffer
@@ -50,12 +62,22 @@ int is_chain(info_t *info, char *buf, size_t *p)
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
+<<<<<<< HEAD
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
 
 		if (info->status)
 		{
+=======
+	
+	if (info->cmd_buf_type == CMD_AND)
+	{
+	
+		if (info->status)
+		{
+		
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 			buf[i] = 0;
 			j = len;
 		}
@@ -69,7 +91,11 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 		}
 
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	*p = j;
 }
 
@@ -84,7 +110,11 @@ int replace_alias(info_t *info)
 	int i;
 	list_t *node;
 	char *p;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	for (i = 0; i < 10; i++)
 	{
 		node = node_starts_with(info->alias, info->argv[0], '=');
@@ -113,7 +143,10 @@ int replace_vars(info_t *info)
 {
 	int i = 0;
 	list_t *node;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
 	for (i = 0; info->argv[i]; i++)
 	{
 		if (info->argv[i][0] != '$' || !info->argv[i][1])
@@ -143,6 +176,10 @@ int replace_vars(info_t *info)
 }
 
 /**
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d1576965e0e32ccbf0f4d61bf02c75041015c41
  * replace_string - replaces string
  * @old: address of old string
  * @new: new string
