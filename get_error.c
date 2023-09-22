@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 /**
  * get_error - calls the error according the builtin, syntax or permission
  * @datash_mogale: data structure that contains arguments
