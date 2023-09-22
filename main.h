@@ -1,5 +1,6 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef _KELLY_
+#define _KELLY_
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -17,6 +18,7 @@
 
 /* Points to an array of pointers to strings called the "environment" */
 extern char **environ;
+
 
 /**
  * struct data15 - struct that contains all relevant data
@@ -37,9 +39,8 @@ typedef struct data15
 	int counter15;
 	char **_environ15;
 	char *pid15;
-	
-	data_shell_15;
-}
+} data_shell_15;
+
 /**
  * struct sep_list_s15 - single linked list
  * @separator15: ; | &
@@ -50,9 +51,10 @@ typedef struct sep_list_s15
 {
 	char separator15;
 	struct sep_list_s15 *next;
-	sep_list15;
-}
+} sep_list15;
+
 /**
+
  * struct line_list_s15 - single linked list
  * @line15: command line
  * @next15: next node
@@ -62,12 +64,11 @@ typedef struct line_list_s15
 {
 	char *line;
 	struct line_list_s15 *next;
-       
-	line_list15;
-}
+} line_list15;
+
 /**
  * struct r_var_list15 - single linked list
- * @len_15: length of the variable	
+ * @len_15: length of the variable
  * @value: value of the variable
  * @len_val15: length of the value
  * @next: next node_
@@ -103,12 +104,12 @@ r_var15 *add_rvar_node(r_var15 **head, int lvar, char *var, int lval);
 void free_rvar_list(r_var15 **head);
 
 /* aux_str functions */
-char *strca_t(char *destination, const char *source);
+char *strca_t(char *destination, const char *source);	
 char *strcp_y(char *destination, char *source);
 int strcm_p(char *string1, char *string2);
 char *strch_r(char *s, char c);
 int strsp_n(char *s, char *accept);
-	
+
 /* aux_mem.c */
 void memcpy15(void *newptr15, const void *ptr15, unsigned int size15);
 void *realloc15(void *ptr15, unsigned int old_size15, unsigned int new_size15);
@@ -207,6 +208,7 @@ char *error_env(data_shell_15 *datash_mogale);
 char *error_syntax(char **args15);
 char *error_permission(char **args15);
 char *error_path_126(data_shell_15 *datash_mogale);
+
 
 /* get_error.c */
 int get_error(data_shell_15 *datash_mogale, int eval);
