@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "main.h"
 /**
  * strdup15 - duplicates a str in the heap memory.
  * @s: Type char pointer str
