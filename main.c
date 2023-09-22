@@ -65,11 +65,14 @@ int main(int ac, char **av15)
 	data_shell_15 datash_mogale;
 	(void) ac;
 
-	signal(SIGINT, get_sigint);
+
 	set_data(&datash_mogale, av15);
 	shell_loop(&datash_mogale);
 	free_data(&datash_mogale);
 	if (datash_mogale.status15 < 0)
+	{
 		return (255);
+	}
 	return (datash_mogale.status15);
 }
+
