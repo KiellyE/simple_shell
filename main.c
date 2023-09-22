@@ -12,14 +12,19 @@ int main(int ac, char **av)
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
 
+	// initialize info struct
+	memset(&info, 0, sizeof(info));
+	info.readfd = fd;
+
 	asm ("mov %1, %0\n\t"
-			"add $3, %0"
-			: "=r" (fd)
-			: "r" (fd));
+		"add $3, %0"
+		: "=r" (fd)
+		: "r" (fd)
+	);
 
 	if (ac == 2)
 	{
-		fd = open(av[1], O_RDONLY);
+		fd = open(av[1], O_RDONLY);;
 		if (fd == -1)
 		{
 			if (errno == EACCES)
@@ -35,10 +40,15 @@ int main(int ac, char **av)
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		info.readfd = fd;
 	}
-	populate_env_list(info);
-	read_history(info);
-	hsh(info, av);
+
+	populate_env_list(&info);
+	read_history(&info);
+
+	// Call the hsh function with info and av
+	hsh(&info, av);
+
 	return (EXIT_SUCCESS);
 }
+
