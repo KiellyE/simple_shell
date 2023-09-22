@@ -48,7 +48,6 @@ ssize_t get_line(char **lineptr15, size_t *n, FILE *stream)
 	char *buffer;
 	char t = 'z';
 
-	
 	if (input15 == 0)
 		fflush(stream);
 	else

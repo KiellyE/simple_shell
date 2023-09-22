@@ -3,7 +3,7 @@
 /**
  * exec_line - Function finds builtins and commands
  *
- * @datash_mogale: data 
+ * @datash_mogale: data
  * Return:Will return 1 on success.
  */
 int exec_line(data_shell_15 *datash_mogale)

@@ -25,7 +25,7 @@ int get_help(data_shell_15 *datash_mogale)
 		aux_help_alias();
 	else
 		write(STDERR_FILENO, datash_mogale->args15[0],
-		      strlen15(datash_mogale->args15[0]));
+			strlen15(datash_mogale->args15[0]));
 	datash_mogale->status15 = 0;
 	return (1);
 }
