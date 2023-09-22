@@ -13,7 +13,7 @@ void check_env(r_var15 **h, char *in, data_shell_15 *data)
 	int row, chr, j, lval;
 	char **_envr;
 
-	envr = data->_environ15;
+	_envr = data->_environ15;
 	for (row = 0; _envr[row]; row++)
 	{
 		for (j = 1, chr = 0; _envr[row][chr]; chr++)
@@ -111,7 +111,8 @@ char *replaced_input(r_var15 **head, char *input15, char *new_input, int nlen)
 			{
 				for (k = 0; k < indx->len_15; k++)
 					j++;
-					m--;
+					
+				m--;
 			}
 			else
 			{
